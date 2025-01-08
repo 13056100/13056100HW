@@ -1,6 +1,7 @@
 import numpy as np
 import numpy.linalg as la
 
+
 def gram_schmidt(S1: np.ndarray):
     m, n = S1.shape
     S2 = np.zeros((m, n))
@@ -23,5 +24,6 @@ S1 = np.array([[ 7,  4,  7, -3, -9],
 S2 = gram_schmidt(S1)
 
 np.set_printoptions(precision=2, suppress=True)
+
 print(f'S1 => \n{S1}')
 print(f'S2.T @ S2 => \n{S2.T @ S2}')
