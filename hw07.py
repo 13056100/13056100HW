@@ -28,7 +28,7 @@ def scatter_pts_2d(x, y):
     return xmin, xmax, ymin, ymax
 
 # Load dataset
-file_path = r'C:\Users\hunte\Desktop\資訊科技\data\hw7.csv'
+file_path = r'C:\Users\xuzhen\Desktop\hw\hw7.csv'
 dataset = pd.read_csv(file_path).to_numpy(dtype=np.float64)
 x = dataset[:, 0]
 y = dataset[:, 1]
