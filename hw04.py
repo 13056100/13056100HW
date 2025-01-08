@@ -3,22 +3,6 @@ import numpy.linalg as la
 
 
 def scale_to_range(X: np.ndarray, to_range=(0, 1), byrow=False):
-    """
-    Parameters
-    ----------
-    X: 
-        1D or 2D array
-    
-    to_range: default to (0,1).
-        Desired range of transformed data.
-        
-    byrow: default to False
-        When working with a 2D array, true to perform row mapping; 
-        otherwise, column mapping. Ignore if X is 1D. 
-    
-    ----------
-    
-    """
     a, b = to_range
     Y = np.zeros(X.shape)
     
