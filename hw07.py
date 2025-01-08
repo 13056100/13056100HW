@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Apr 12 10:04:38 2021
 
-@author: htchen
-"""
 # If this script is not run under spyder IDE, comment the following two lines.
 from IPython import get_ipython
 get_ipython().run_line_magic('reset', '-sf')
@@ -73,7 +68,6 @@ for _ in range(1, max_iters):
     # calculate gradient of cost function by using numeric method(使用數值法計算梯度)
     # update rule: 
     #     w =  w - alpha * gradient_of_cost
-    
 
 xt = np.linspace(xmin, xmax, 100)
 yt2 = w[0] + w[1] * np.sin(w[2] * xt + w[3])
