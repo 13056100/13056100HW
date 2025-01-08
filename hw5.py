@@ -1,6 +1,7 @@
 from IPython import get_ipython
 get_ipython().run_line_magic('reset', '-sf')
 
+
 import math
 import numpy as np
 import numpy.linalg as la
@@ -88,6 +89,7 @@ def poly_data_matrix(x: np.ndarray, n: int):
     for deg in range(1, n + 1):
         X[:, deg] = X[:, deg - 1] * x
     return X
+
 hw5_csv = pd.read_csv(r'C:\ddd\data\hw5.csv')
 hw5_dataset = hw5_csv.to_numpy(dtype = np.float64)
 
