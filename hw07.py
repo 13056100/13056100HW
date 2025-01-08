@@ -4,7 +4,6 @@ Created on Mon Apr 12 10:04:38 2021
 
 @author: htchen
 """
-
 # If this script is not run under spyder IDE, comment the following two lines.
 from IPython import get_ipython
 get_ipython().run_line_magic('reset', '-sf')
@@ -61,7 +60,6 @@ for _ in range(1, max_iters):
         gradient[i] = (cost1 - cost2) / (2 * epsilon)
     
     w -= alpha * gradient
-
 
 
 xmin,xmax,ymin,ymax = scatter_pts_2d(x, y)
