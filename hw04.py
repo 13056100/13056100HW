@@ -1,6 +1,7 @@
 import numpy as np
 import numpy.linalg as la
 
+
 def scale_to_range(X: np.ndarray, to_range=(0, 1), byrow=False):
     """
     Parameters
@@ -47,6 +48,7 @@ A = np.array([[1, 12, 3, 7, 8],
               [4, 11, 4, 1, 2],
               [3, 13, 2, 3, 5],
               [2, 15, 6, 3, 2]])
+
 print(f'A => \n{A}')
 print(f'scale_to_range(A) => \n{scale_to_range(A)}\n\n')
 
@@ -54,5 +56,6 @@ print('test case 3:')
 A = np.array([[1, 2, 3, 4, 5],
               [5, 4, 1, 2, 3],
               [3, 5, 4, 1, 2]])
+
 print(f'A => \n{A}')
 print(f'scale_to_range(A, byrow=True) => \n{scale_to_range(A, byrow=True)}\n\n')
