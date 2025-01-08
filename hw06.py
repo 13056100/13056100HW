@@ -32,19 +32,17 @@ sigma2 = np.array([[0.3, 0.2],[0.2, 1]])
 N2 = 100
 X2 = np.random.multivariate_normal(mean2, sigma2, N2)
 
-# m1: mean of class 1
-# m2: mean of class 2
+# m1:class 1
+# m2:class 2
 m1 = np.mean(X1, axis=0, keepdims=1)
 m2 = np.mean(X2, axis=0, keepdims=1)
 
 cov1 = np.cov(X1.T)  
 cov2 = np.cov(X2.T)  
 
-# Step 2
 eigvals1, eigvecs1 = myeig(cov1, symmetric=True)
 eigvals2, eigvecs2 = myeig(cov2, symmetric=True)
 
-# Step 3
 plt.figure(dpi=288)
 
 plt.plot(X1[:, 0], X1[:, 1], 'r.', label='Class 1')
