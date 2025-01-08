@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import cv2
 
 
-image_path = r"C:\ddd\data\svd_demo1.jpg"
+image_path = r"C:\Users\xuzhen\Desktop\hw\svd_demo1.jpg"
 img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
 A = img.astype(dtype=np.float64)
 U, Sigma, VT = np.linalg.svd(A, full_matrices=False)
