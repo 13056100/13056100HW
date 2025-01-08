@@ -6,7 +6,7 @@ import numpy.linalg as la
 import matplotlib.pyplot as plt
 import pandas as pd
 
-hw8_csv = pd.read_csv(r'C:\ddd\data\hw8.csv')
+hw8_csv = pd.read_csv(r'C:\Users\xuzhen\Desktop\hw\hw8.csv')
 hw8_dataset = hw8_csv.to_numpy(dtype=np.float64)
 
 X0 = hw8_dataset[:, 0:2]
