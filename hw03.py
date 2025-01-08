@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 # calculate the eigenvalues and eigenvectors of a squared matrix
 # the eigenvalues are decreasing ordered
 def myeig(A, symmetric=False):
