@@ -1,12 +1,9 @@
-from IPython import get_ipython
-get_ipython().run_line_magic('reset', '-sf')
-
-
 import math
 import numpy as np
 import numpy.linalg as la
 import matplotlib.pyplot as plt
 import pandas as pd
+
 
 # calculate the eigenvalues and eigenvectors of a squared matrix
 # the eigenvalues are decreasing ordered
@@ -59,10 +56,6 @@ def predict(X, y, Xt, sigma=1.0):
         yt[xi] = c @ w
     return yt
 
-# Xs: m x n matrix; 
-# m: pieces of sample
-# K: m x m kernel matrix
-# K[i,j] = exp(-c(|xt_i|^2 + |xs_j|^2 -2(xt_i)^T @ xs_j)) where c = 0.5 / sigma^2
 def calc_gaussian_kernel(Xt, Xs, sigma=1):
     nt, _ = Xt.shape # pieces of Xt
     ns, _ = Xs.shape # pieces of Xs
@@ -90,35 +83,28 @@ def poly_data_matrix(x: np.ndarray, n: int):
         X[:, deg] = X[:, deg - 1] * x
     return X
 
-hw5_csv = pd.read_csv(r'C:\ddd\data\hw5.csv')
-hw5_dataset = hw5_csv.to_numpy(dtype = np.float64)
+
+file_path = r'C:\Users\xuzhen\Desktop\hw\hw5.csv' 
+hw5_csv = pd.read_csv(file_path)
+hw5_dataset = hw5_csv.to_numpy(dtype=np.float64)
+
 
 hours = hw5_dataset[:, 0]
 sulfate = hw5_dataset[:, 1]
 
-n_degree = 3
-X = poly_data_matrix(hours, n_degree)
-w = la.pinv(X.T @ X) @ X.T @ sulfate
-y_pred = X @ w
+# 多項式擬合
+degree = 3  
+poly_coeffs = np.polyfit(hours, sulfate, degree)
+poly_trend = np.polyval(poly_coeffs, hours)
 
-plt.figure(figsize=(10, 6))
-plt.scatter(hours, sulfate, color='blue', label='Original Data')
-plt.plot(hours, y_pred, color='red', label=f'Polynomial Fit (degree={n_degree})')
-plt.title('Sulfate Concentration vs Time')
-plt.xlabel('Time in hours')
-plt.ylabel('Sulfate Concentration (times $10^{-4}$)')
+
+plt.figure(figsize=(8, 6))
+plt.scatter(hours, sulfate, color='red', label='Original Data')
+plt.plot(hours, poly_trend, color='blue', label=f'{degree}-degree Polynomial Fit')
+plt.title('concentration vs time')
+plt.xlabel('time in hours')
+plt.ylabel('sulfate concentration (times $10^{-4}$)')
 plt.legend()
 plt.grid()
 plt.show()
 
-plt.figure(figsize=(10, 6))
-plt.scatter(hours, sulfate, color='blue', label='Original Data')
-plt.plot(hours, y_pred, color='red', label=f'Polynomial Fit (degree={n_degree})')
-plt.xscale("log")
-plt.yscale("log")
-plt.title('Sulfate Concentration vs Time (Log-Log Scale)')
-plt.xlabel('Time in hours')
-plt.ylabel('Sulfate Concentration (times $10^{-4}$)')
-plt.legend()
-plt.grid()
-plt.show()
