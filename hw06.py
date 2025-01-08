@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Apr 12 10:04:38 2021
 
-@author: htchen
-"""
 from IPython import get_ipython
 get_ipython().run_line_magic('reset', '-sf')
 
